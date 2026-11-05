@@ -44,6 +44,7 @@
 
     const month = document.createElement("section");
     month.className = "month" + (hasPhotos ? "" : " month-empty");
+    month.dataset.num = parts[1];
     month.setAttribute(
       "aria-label",
       MONTH_NAMES[monthNumber] + (hasPhotos ? "的照片" : "，没有照片")

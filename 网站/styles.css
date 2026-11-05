@@ -238,46 +238,82 @@ main {
 }
 
 .month {
+  position: relative;
   flex: 0 0 var(--month-w);
   align-self: stretch;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  padding-bottom: 18px;
-  border-right: 1px solid rgba(0, 0, 0, .34);
-  background: var(--film);
-  color: var(--film-text);
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 20px 22px 22px;
+  border-right: 2px solid var(--film-edge);
+  background: var(--paper-light);
+  color: var(--ink);
+  overflow: hidden;
+}
+
+.month::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 22px;
+  width: 30px;
+  height: 3px;
+  background: var(--accent);
+}
+
+.month::after {
+  content: attr(data-num);
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-family: var(--serif);
+  font-size: clamp(56px, 7vw, 88px);
+  font-weight: 600;
+  line-height: 1;
+  color: rgba(28, 23, 18, .06);
 }
 
 .month-kicker {
+  position: absolute;
+  top: 22px;
+  left: 22px;
   font-family: var(--mono);
-  font-size: 9.5px;
+  font-size: 9px;
   letter-spacing: .18em;
-  color: var(--film-text-soft);
+  color: var(--ink-soft);
 }
 
 .month-name {
+  width: 100%;
+  padding-top: 12px;
+  border-top: 1px solid rgba(28, 23, 18, .2);
   font-family: var(--serif);
-  font-size: clamp(30px, 3.8vw, 43px);
-  letter-spacing: .13em;
-  color: var(--film-text);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: .06em;
+  color: var(--ink);
 }
 
 .month-en {
+  margin-top: 8px;
   font-family: var(--mono);
   font-size: 8.5px;
   letter-spacing: .32em;
-  color: #756249;
+  color: var(--ink-faint);
 }
 
 .month-note {
-  margin-top: 7px;
+  margin-top: 5px;
   font-family: var(--mono);
   font-size: 8px;
   letter-spacing: .16em;
-  color: #6d5a43;
+  color: var(--ink-faint);
+}
+
+.month-empty {
+  background: var(--paper);
 }
 
 .frame {
@@ -721,16 +757,39 @@ main {
     background-size: 24px 16px;
   }
 
-  .month-name {
-    font-size: 28px;
+  .month {
+    padding: 16px 14px 16px;
+  }
+
+  .month::before {
+    left: 14px;
+    width: 20px;
+    height: 2px;
+  }
+
+  .month::after {
+    top: 12px;
+    right: 10px;
+    font-size: 46px;
   }
 
   .month-kicker {
-    font-size: 8.5px;
+    top: 18px;
+    left: 14px;
+    font-size: 8px;
+  }
+
+  .month-name {
+    padding-top: 10px;
+    font-size: 30px;
   }
 
   .month-en {
     font-size: 8px;
+  }
+
+  .month-note {
+    font-size: 7.5px;
   }
 
   .frame-meta {
