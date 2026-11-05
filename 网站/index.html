@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>小满的 2025 · 照片日记</title>
+  <meta name="description" content="小满的 2025 年照片日记，一卷从一月到十二月的胶片。">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <div class="title-block">
+      <h1 class="name">小满<span class="seal" aria-hidden="true">满</span></h1>
+      <p class="year-mark">二〇二五 · 照片日记</p>
+    </div>
+    <p class="intro">在杭州上班，平时喜欢拍照、喝茶、到处走走。</p>
+    <div class="meta-row">
+      <span id="metaCount">35 张照片 · 一月—十二月</span>
+      <span class="hint" id="hint">拖动或滚动浏览 <span aria-hidden="true">→</span></span>
+    </div>
+  </header>
+
+  <main>
+    <div class="film-wrap" id="filmWrap">
+      <div class="film-scroller" id="scroller" aria-label="照片胶片，左右滚动浏览">
+        <div class="film-track">
+          <div class="perf perf-top" aria-hidden="true"></div>
+          <div class="frames" id="frames"></div>
+          <div class="perf perf-bottom" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rail-wrap">
+      <div class="rail" aria-hidden="true">
+        <div class="rail-thumb" id="railThumb"></div>
+      </div>
+      <div class="under-rail">
+        <span>点开任意一张，查看日期、地点和说明</span>
+        <span id="underCount">35 格</span>
+      </div>
+    </div>
+  </main>
+
+  <dialog class="viewer" id="viewer" aria-labelledby="viewerCaption" tabindex="-1">
+    <div class="viewer-shell">
+      <div class="stage" id="stage">
+        <div class="stage-blur" id="stageBlur" aria-hidden="true"></div>
+        <img class="stage-img" id="stageImg" alt="" draggable="false">
+        <span class="stage-status" id="stageStatus" aria-live="polite">显影中</span>
+        <button class="nav nav-prev" id="prevBtn" type="button" aria-label="上一张">←</button>
+        <button class="nav nav-next" id="nextBtn" type="button" aria-label="下一张">→</button>
+      </div>
+
+      <aside class="info">
+        <div class="info-top">
+          <span id="viewerCount">01 / 35</span>
+          <span id="viewerMonth">一月</span>
+        </div>
+        <p class="date" id="viewerDate"></p>
+        <p class="loc"><span class="loc-dot" aria-hidden="true"></span><span id="viewerLoc"></span></p>
+        <p class="caption" id="viewerCaption"></p>
+        <div class="info-foot">
+          <span class="seal seal-small" aria-hidden="true">满</span>
+          <span>小满的 2025</span>
+        </div>
+      </aside>
+
+      <button class="close" id="closeBtn" type="button" aria-label="关闭照片">关闭</button>
+    </div>
+  </dialog>
+
+  <script src="photos.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

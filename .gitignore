@@ -1,0 +1,19 @@
+# 原始素材与外部参考资料
+原图/
+参考/
+
+# 验证截图
+截图/
+
+# 临时文件与系统文件
+.DS_Store
+Thumbs.db
+*.tmp
+*.temp
+*.log
+*.swp
+*.swo
+*~
+__pycache__/
+*.pyc
+node_modules/
