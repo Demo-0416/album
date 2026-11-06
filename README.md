@@ -41,8 +41,13 @@ python3 -m http.server 8000
 
 GitHub Pages 从 `gh-pages` 分支发布，该分支的内容就是 `网站/` 目录的副本（`index.html` 位于分支根目录）。
 
-更新网站后重新发布：
+`gh-pages` 是一个独立的单提交分支，内容就是 `网站/` 的副本。更新网站后重新发布：
 
 ```bash
-git subtree push --prefix=网站 origin gh-pages
+tree=$(git rev-parse HEAD:网站)
+commit=$(git commit-tree "$tree" -m "发布网站")
+git branch -f gh-pages "$commit"
+git push -f origin gh-pages
 ```
+
+> 这里没有用 `git subtree`：它对中文目录名会报断言错误。
