@@ -17,3 +17,6 @@ Thumbs.db
 __pycache__/
 *.pyc
 node_modules/
+
+# 相册更新流程的中间状态
+.album/
